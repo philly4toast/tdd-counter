@@ -10,8 +10,12 @@ configure({ adapter: new Adapter() });
 
 describe('Counter Testing', ()=>{
   test('render the title of counter', () => {
-    const { getByText } = render(<App />);
-    const linkElement = getByText('This is counter app');
-    expect(linkElement).toBeInTheDocument();
+    const wrapper = shallow(<App />);
+    // console.log(wrapper.debug())
+    expect(wrapper.find('h1').text()).toContain('This is counter app')
+
+    // const { getByText } = render(<App />);
+    // const linkElement = getByText('This is counter app');
+    // expect(linkElement).toBeInTheDocument();
 })
 });
